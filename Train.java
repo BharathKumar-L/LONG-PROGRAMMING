@@ -77,6 +77,7 @@ class Train {
             System.out.println("No tickets booked");
         } else {
             System.out.println("Booked Tickets: ");
+            System.out.println("----------------------------");
             for (Ticket ticket : bookedTickets) {
                 System.out.println("Ticket Id : " + ticket.getTid());
                 System.out.println("Passenger Name : " + ticket.getPassenger().getPassengerName());
@@ -87,12 +88,14 @@ class Train {
             System.out.println("No tickets in waiting list");
         } else {
             System.out.println("Waiting Tickets: ");
+            System.out.println("----------------------------");
             for (Ticket ticket : waitingTickets) {
                 System.out.println("Ticket Id : " + ticket.getTid());
                 System.out.println("Passenger Name : " + ticket.getPassenger().getPassengerName());
                 System.out.println("Travel Date : " + ticket.getTravelDate());
             }
         }
+        System.out.println("----------------------------");
     }
 
 }
