@@ -158,6 +158,7 @@ public class Main {
                     break;
                 case 12:
                     System.out.println("Exiting the System........");
+                    sc.close();
                     System.exit(0);
                     break;
                 default:
