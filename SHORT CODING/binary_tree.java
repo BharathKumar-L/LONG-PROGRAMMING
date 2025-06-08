@@ -9,7 +9,17 @@ class TreeNode{
         this.right = null;
     }
 }
+
 class BinaryTree{
+    static boolean mirror_check(TreeNode root1,TreeNode root2){
+        if(root1==null && root2==null){
+            return true;
+        }
+        if(root1==null || root2==null){
+            return false;
+        }
+        return (root1.val==root2.val) && mirror_check(root1.left,root2.left) && mirror_check(root1.right,root2.right);
+    }
     static void preorder(TreeNode root){
         if(root!=null){
             System.out.println(root.val);
@@ -52,6 +62,6 @@ public class binary_tree {
     public static void main(String args[]){
         buildTree bt = new buildTree();
         TreeNode root = bt.build();
-        BinaryTree.inorder(root);
+        System.out.println(BinaryTree.mirror_check(root,root));
     }
 }
