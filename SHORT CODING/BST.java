@@ -9,7 +9,6 @@ class TreeNode {
   }
 }
 class BinaryST{
-  TreeNode root;
   TreeNode insertNode(TreeNode root, int val){
     if(root==null)
       return new TreeNode(val);
@@ -32,12 +31,13 @@ class BST{
   public static void main(String args[]){
     Scanner sc = new Scanner(System.in);
     BinaryST bt = new BinaryST();
+    TreeNode root=null;
     while(true){
       int val = sc.nextInt();
       if(val==-1) break;
-      bt.root = bt.insertNode(bt.root,val);
+      root = bt.insertNode(root,val);
     }
-    bt.preorder(bt.root);
+    bt.preorder(root);
     sc.close();
   }
 }

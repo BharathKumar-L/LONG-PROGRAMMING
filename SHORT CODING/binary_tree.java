@@ -44,16 +44,16 @@ class BinaryTree{
 }
 class buildTree{
     static Scanner sc = new Scanner(System.in);
-    TreeNode build(){
+    TreeNode build(int n){
         int val = sc.nextInt();
-        if(val == -1)
+        if(n == 0 || val == -1)
             return null;
         TreeNode node = new TreeNode(val);
         
         System.out.println("Enter left child of "+val);
-        node.left = build();
+        node.left = build(n-1);
         System.out.println("Enter right child of "+val);
-        node.right = build();
+        node.right = build(n-1);
 
         return node;
     }
@@ -61,7 +61,10 @@ class buildTree{
 public class binary_tree {
     public static void main(String args[]){
         buildTree bt = new buildTree();
-        TreeNode root = bt.build();
-        System.out.println(BinaryTree.mirror_check(root,root));
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        TreeNode root = bt.build(n);
+        System.out.println(BinaryTree.mirror_check(root.left,root.right));
+        sc.close();
     }
 }
