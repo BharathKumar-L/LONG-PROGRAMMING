@@ -4,12 +4,10 @@ import java.util.Map;
 public class library_management_system {
     Map<Integer , Book> books;
     Map<Integer , Member> members;
-    Map<Member , Book> borrowed_books;
 
     public library_management_system() {
         books = new HashMap<>();
         members = new HashMap<>();
-        borrowed_books = new HashMap<>();
     }
 
     public boolean isMemberExists(int member_id){
@@ -40,8 +38,8 @@ public class library_management_system {
             Book book = books.get(book_id);
             if(!book.isIs_borrowed()){
                 book.setIs_borrowed(true);
-                borrowed_books.put(members.get(member_id), book);
-                members.get(member_id).add_borrowedBooks(book);
+                Member member = members.get(member_id);
+                member.add_borrowedBooks(book);
                 System.out.println("Book borrowed successfully");
             }
             else{
@@ -58,7 +56,8 @@ public class library_management_system {
             Book book = books.get(book_id);
             if(book.isIs_borrowed()){
                 book.setIs_borrowed(false);
-                borrowed_books.remove(members.get(member_id));
+                Member member = members.get(member_id);
+                member.remove_borrowedBooks(book);
                 System.out.println("Book returned successfully");
             }
             else{
@@ -132,7 +131,7 @@ public class library_management_system {
 
     public void viewBorrowedBooks(int member_id){
         System.out.println();
-        if(members.get(member_id).borrowed_books != null){    
+        if(members.get(member_id).getBorrowed_books() != null){    
             System.out.println("Books Borrowed by Member : "+member_id);
             System.out.println( "--------------------------------------------------------------------------");
             for(Book book : members.get(member_id).getBorrowed_books())

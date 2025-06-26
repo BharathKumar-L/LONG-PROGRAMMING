@@ -56,6 +56,10 @@ public class Member {
         borrowed_books.add(book);
     }
 
+    public void remove_borrowedBooks(Book book) {
+        borrowed_books.remove(book);
+    }
+
     @Override
     public String toString(){
         return "Member Id   :" + member_id + "\n" +
